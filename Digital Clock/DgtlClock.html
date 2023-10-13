@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="icon" href="https://d4.alternativeto.net/70Mw2lrD4-w6CtqNu7haMFpFDzZiCiGbtus754uGJ-E/rs:fill:280:280:0/g:ce:0:0/YWJzOi8vZGlzdC9pY29ucy9jbG9ja18xMTgzNTcucG5n.png">
+    <style>
+body {
+    margin: 0%;
+    background-image: radial-gradient(rgb(47, 146, 239),rgb(46, 22, 227), rgb(17, 5, 77));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+.clk{
+    width: 17.3vw;
+    height: 10vw;
+    background-color: rgb(0, 14, 165);
+    position: relative;
+    top: 40vh;
+    left: 5vw;
+    transform: rotate(30deg);
+}
+.clk::before{
+    content: "";
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    transform: rotate(60deg);
+    background-color: rgb(25, 43, 239);
+}
+.clk::after{
+    content: "";
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    transform: rotate(-60deg);
+    background-color:  rgb(16, 30, 194);
+}
+.ctnr{
+    width: 12vw;
+    height: 12vw;
+    background-image: radial-gradient(rgb(3, 11, 68),rgb(25, 43, 239));
+    position: relative;
+    top:38vh ;
+    left: -9.7vw;
+    border-radius: 20%;
+    /* display: flex */
+}
+.ctnr .hrs{
+    width: 6.7vw;
+    height:8vw;
+    background-color: rgba(145, 222, 135, 0);
+    position: relative;
+    /* left: 10px; */
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif, Verdana,Tahoma, Geneva;
+    color: white;
+}
+.ctnr .min{
+    width: 5vw;
+    height:5vw;
+    background-color: rgba(44, 75, 75, 0.053);
+    position: relative;
+    top: -16vh;
+    left: 7.2vw;
+    font-size: 60px;
+    display: flex;
+    color: rgb(151, 151, 151);
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif
+}
+.ctnr .sec{
+    width: 4vw;
+    height:3vw;
+    background-color: rgba(241, 32, 74, 0);
+    position: relative;
+    left: 7vw;
+    top: -16vh;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    color: rgb(249, 38, 38);
+    align-items: center;
+}
+.ctnr .det{
+    width: 12vw;
+    height:5vh;
+    background-color: rgba(154, 135, 222, 0);
+    position: relative;
+    top: -14vh;
+    font-size: 40px;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        setInterval(function(){
+        let o=new Date()
+        let h=o.getHours()
+        let m=o.getMinutes()
+        let s=o.getSeconds()
+        let d=o.getDate()
+        let mth=o.getMonth()
+        let yr=o.getFullYear()
+        // console.log(h)
+        // console.log(m)
+        // console.log(s)
+        let det=d+'   '+mth+'   '+yr
+        console.log(d,mth,yr)
+            document.getElementsByClassName("hrs")[0].innerHTML=h
+            document.getElementsByClassName("min")[0].innerHTML=m
+            document.getElementsByClassName("sec")[0].innerHTML=s
+            document.getElementsByClassName("det")[0].innerHTML=det
+        },1000)
+
+    })
+ </script>
+
+</head>
+<body >
+    <div class="clk">
+    </div>
+</body>
+<div class="ctnr">
+    <div class="hrs"></div>
+    <div class="min"></div>
+    <div class="sec"></div>
+    <div class="det"></div>
+</div>
+</html>
